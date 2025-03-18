@@ -1,0 +1,9 @@
+const WebLayout = () => {
+  return (
+    <div>
+      <h1>Web</h1>
+    </div>
+  );
+};
+
+export default WebLayout;
