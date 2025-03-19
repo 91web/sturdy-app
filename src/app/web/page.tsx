@@ -4,7 +4,7 @@ import HomeHero from "./components/home-hero";
 import LearningPlatform from "./components/learning-platform";
 import WhyUs from "./components/why-hero";
 import CourseCatalog from "./components/course-log";
-import EnrolBanner from "./components/enrol-hero";
+import BannerSection from "./components/enrol-hero";
 const HomeApp = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -12,8 +12,7 @@ const HomeApp = () => {
       <LearningPlatform />
       <WhyUs />
       <CourseCatalog />
-      <EnrolBanner/>
-      
+      <BannerSection/>
     </Box>
   );
 };

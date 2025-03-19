@@ -1,19 +1,17 @@
-"use client";
+import React from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+
 import Container from "@mui/material/Container";
-import { Banner } from "./banner";
-import TestimonialSlider from "./testimonial";
-import EnrolBanner from "./enrol-banner";
-const BannerSection = () => {
+import Typography from "@mui/material/Typography";
+
+const BannerVision = () => {
   return (
     <Box>
       <Box
         sx={{
-          bgcolor: "#063D05",
+          bgcolor: "#fff",
           color: "#fff",
-          py: 8,
+          pt: 4,
           textAlign: "center",
           height: "400px",
         }}
@@ -29,21 +27,16 @@ const BannerSection = () => {
             }}
           >
             <Typography
-              color="#fff"
+              color="#404040"
               fontFamily="'libre baskerville'"
               fontSize={{ xs: 28, md: 36 }}
               mb={1}
             >
-              All courses tailored
-              <Box
-                component="br"
-                sx={{ display: { xs: "none", md: "block" } }}
-              />
-              <span> to your unique learning style</span>
+              Our Vision
             </Typography>
 
             <Typography
-              color="#CCCCCC"
+              color="#797979"
               fontFamily={"'sf pro display'"}
               fontSize={{ xs: 16, md: 18 }}
               mb={1}
@@ -53,28 +46,11 @@ const BannerSection = () => {
               cursus amet augue tempor etiam quis. morbi rutrum cursus amet
               augue tempor etiam quis.
             </Typography>
-
-            <Button
-              variant="outlined"
-              sx={{
-                borderColor: "#CCCCCC",
-                color: "#fff",
-                textTransform: "none",
-                fontFamily: "sf pro display",
-                fontSize: 18,
-              }}
-            >
-              Enrol now
-            </Button>
           </Box>
         </Container>
       </Box>
-      <Box>
-        <Banner title={``} description={``} />
-      </Box>
-      <TestimonialSlider />
-      <EnrolBanner />
     </Box>
   );
 };
-export default BannerSection;
+
+export default BannerVision;

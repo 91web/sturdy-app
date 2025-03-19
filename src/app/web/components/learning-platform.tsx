@@ -15,16 +15,16 @@ const PlatForm = () => (
     sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
   >
     <Container maxWidth="lg">
-   <Box sx={{ textAlign: { xs: "left", md: "center" } }}>
-  <Typography
-    color="#404040"
-    fontFamily="'Libre Baskerville'"
-    fontSize={{ xs: 28, md: 36 }}
-    my={4}
-  >
-    All-in-one learning platform...
-  </Typography>
-</Box>
+      <Box sx={{ textAlign: { xs: "left", md: "center" } }}>
+        <Typography
+          color="#404040"
+          fontFamily="'Libre Baskerville'"
+          fontSize={{ xs: 28, md: 36 }}
+          my={4}
+        >
+          All-in-one learning platform...
+        </Typography>
+      </Box>
       <Grid container spacing={4} sx={{ justifyContent: "center" }}>
         <Grid
           size={{ xs: 12, md: 4 }}

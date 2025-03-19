@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid2 from "@mui/material/Grid2";
 import Button from "@mui/material/Button";
-import Image from "next/image";
 import Hero4 from "../../../assets/img/home-hero3.png";
 import Container from "@mui/material/Container";
 
@@ -21,26 +20,22 @@ const WhyUs = () => (
         </Typography>
       </Box>
       <Box>
-        <Grid2
-          container
-          component={"div"}
-          spacing={0}
-          mb={4}
-          justifyContent="center"
-        >
-          <Grid2 size={{ xs: 12, md: 6 }}>
-            <Box width={{ xs: "50%", md: "100%" }}>
-              <Image
-                src={Hero4.src}
-                alt="Why Choosing Us"
-                width={425}
-                height={430}
-              />
-            </Box>
+        <Grid2 container spacing={8} mb={4} justifyContent="center">
+          <Grid2 size={{ xs: 12, md: 5 }}>
+            <Box
+              component="img"
+              src={Hero4.src}
+              alt="Why Choosing Us"
+              sx={{
+                width: "100%",
+                minHeight: { xs: "300px", sm: "300px", md: "auto" },
+                objectFit: "cover",
+              }}
+            />
           </Grid2>
           <Grid2 size={{ xs: 12, md: 5 }}>
-            <Box textAlign={"left"} ml={{ xs: 0, md: 2 }} mt={2}>
-              <Box>
+            <Box textAlign={"left"} mt={2}>
+              <Box sx={{ width: { xs: "100%", md: "90%" } }}>
                 <Typography
                   color="#404040"
                   fontFamily={"'sf pro display'"}

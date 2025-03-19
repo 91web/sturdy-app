@@ -28,8 +28,11 @@ const HomeText = () => {
         height: { xs: "110vh", md: "80vh" },
       }}
     >
-   <Container maxWidth="lg">
-        <Box display={"flex"} sx={{ position: "relative", py: 10, px: 0, mx: 0 }}>
+      <Container maxWidth="lg">
+        <Box
+          display={"flex"}
+          sx={{ position: "relative", py: 10, px: 0, mx: 0 }}
+        >
           <Grid
             container
             spacing={4}
@@ -51,7 +54,6 @@ const HomeText = () => {
                   Start your journey with our courses
                 </Typography>
                 <Typography
-                  variant="body2"
                   fontFamily={"'sf display pro'"}
                   fontSize={{ xs: 16, md: 18 }}
                   color="#4F4F4F"

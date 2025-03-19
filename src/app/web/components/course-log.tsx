@@ -15,7 +15,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // Sample course data
 const courses: CourseType[] = CourseData;
 
- const CourseCatalog = () => {
+const CourseCatalog = () => {
   return (
     <Box pb={8}>
       <Container maxWidth="lg">
@@ -114,7 +114,7 @@ const courses: CourseType[] = CourseData;
             </Grid>
           ))}
         </Grid>
-        <Box sx={{ display: { xs: "block", md: "none" } , mt:4}}>
+        <Box sx={{ display: { xs: "block", md: "none" }, mt: 4 }}>
           <Link
             href="#"
             sx={{
@@ -130,6 +130,6 @@ const courses: CourseType[] = CourseData;
       </Container>
     </Box>
   );
-}
+};
 
 export default CourseCatalog;
