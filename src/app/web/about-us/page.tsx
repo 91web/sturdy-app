@@ -83,7 +83,9 @@ const AboutUsPage = () => {
         <Divider sx={{ width: "100%" }} />
       </Box>
       <BannerVision />
-      <TeamHero/>
+      <Box width={"100%"}>
+        <TeamHero />
+      </Box>
     </Box>
   );
 };

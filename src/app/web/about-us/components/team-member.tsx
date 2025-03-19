@@ -16,9 +16,9 @@ export default function TeamHero() {
   const teamMembers: TeamMemberType[] = TeamMemberD;
 
   return (
-    <Box sx={{ bgcolor: "#f5f5f0",  }}>
+    <Box sx={{ bgcolor: "#E1E7E1" }}>
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center", mb: 6 }}>
+        <Box sx={{ textAlign: "center", my: 6 }}>
           <Typography
             color="#404040"
             fontFamily={"'libre baskerville'"}
@@ -39,10 +39,10 @@ export default function TeamHero() {
           </Typography>
         </Box>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {teamMembers.map((member) => (
-            <Grid size={{xs:12, sm:6,md:3}} key={member.id}>
-              <Card elevation={0} sx={{ bgcolor: "transparent" }}>
+            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={member.id}>
+              <Card elevation={0} sx={{ height: "100%", bgcolor: "#E1E7E1" }}>
                 <CardMedia
                   component="img"
                   image={member.image}
@@ -54,17 +54,28 @@ export default function TeamHero() {
                   }}
                 />
                 <CardContent sx={{ px: 0 }}>
-                  <Typography variant="h6" component="h3">
+                  <Typography
+                    color="#404040"
+                    fontFamily={"'sf pro display'"}
+                    fontSize={{ xs: 16, md: 18 }}
+                    mb={0.5}
+                  >
                     {member.name}
                   </Typography>
                   <Typography
-                    variant="subtitle1"
-                    color="text.secondary"
-                    gutterBottom
+                    color="#063D05"
+                    fontFamily={"'sf pro display'"}
+                    fontSize={{ xs: 16, md: 18 }}
+                    mb={0.5}
                   >
                     {member.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary" paragraph>
+                  <Typography
+                    color="#667085"
+                    fontFamily={"'sf pro display'"}
+                    fontSize={{ xs: 14, md: 16 }}
+                    mb={0.5}
+                  >
                     {member.bio}
                   </Typography>
                   <Stack direction="row" spacing={1}>

@@ -13,7 +13,7 @@ const BannerVision = () => {
           color: "#fff",
           pt: 4,
           textAlign: "center",
-          height: "400px",
+          height: "300px",
         }}
       >
         <Container maxWidth="md">
