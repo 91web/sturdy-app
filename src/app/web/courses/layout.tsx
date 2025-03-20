@@ -1,9 +1,17 @@
-const CoursesLayout = () => {
+"use client";
+import Box from "@mui/material/Box";
+
+const AppWebCourseLayout = ({
+  children, // will be a page or nested layout
+}: {
+  children: React.ReactNode;
+}) => {
   return (
-    <div>
-      <h1>Courses</h1>
-    </div>
+    <Box>
+      <Box id="homesturdy" component={"main"}>
+        {children}
+      </Box>
+    </Box>
   );
 };
-
-export default CoursesLayout;
+export default AppWebCourseLayout;

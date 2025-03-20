@@ -7,11 +7,12 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import TeamHero from "./components/team-member";
+import EnrolBanner from "./components/enrol-banner";
 
 const AboutUsPage = () => {
   return (
     <Box
-      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    // sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <Banner
         title="Learn about Here"
@@ -85,6 +86,9 @@ const AboutUsPage = () => {
       <BannerVision />
       <Box width={"100%"}>
         <TeamHero />
+      </Box>
+      <Box mb={2}>
+        <EnrolBanner />
       </Box>
     </Box>
   );

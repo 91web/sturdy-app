@@ -1,20 +1,14 @@
 import Box from "@mui/material/Box";
 import Image from "next/image";
-import BannerImage from "../../../../assets/images/Hero Section1.png";
+import BannerImage from "../../../../assets/img/course-cover.png";
 import Typography from "@mui/material/Typography";
-import { ReactNode } from "react";
 
 interface BannerProps {
   title: string;
   description: string;
-  btnElement?: ReactNode;
 }
 
-export const Banner: React.FC<BannerProps> = ({
-  title,
-  description,
-  btnElement,
-}) => {
+export const Banner: React.FC<BannerProps> = ({ title, description }) => {
   return (
     <Box
       sx={{
@@ -68,16 +62,11 @@ export const Banner: React.FC<BannerProps> = ({
           <Typography
             // variant="h3"
             sx={{
-              fontWeight: "bold",
-              backgroundImage:
-                "linear-gradient(90deg, #FAFAFA 10%, #9EB4EB 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-              WebkitTextFillColor: "transparent",
-              fontSize: { xs: "30px", md: "40px" },
-              maxWidth: "90%",
-              fontFamily: "var(--font-sf-regular)",
+              color: "#fff",
+
+              fontSize: { xs: "30px", md: "54px" },
+              maxWidth: "80%",
+              fontFamily: "'libre baskerville'",
               mx: "auto",
             }}
           >
@@ -88,13 +77,13 @@ export const Banner: React.FC<BannerProps> = ({
               // maxWidth: "80%",
               fontSize: { xs: "16px", md: "20px" },
               mx: "auto",
+              fontFamily: "'sf pro display'",
               // mt: { xs: 0.5, md: 1 },
-              color: "gray",
+              color: "#CCCCCC",
             }}
           >
             {description}
           </Typography>
-          {btnElement}
         </Box>
       </Box>
     </Box>

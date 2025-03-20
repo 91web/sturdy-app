@@ -9,50 +9,87 @@ import Avatar from "@mui/material/Avatar";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
+import ToolIcon from "../../../../assets/svg/tool-icon.svg";
+import Image from "next/image";
+import { CourseData, CourseType } from "../../components/static-data/data";
+import Pagination from "@mui/material/Pagination";
 
-import { CourseData, CourseType } from "../components/static-data/data";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Toolbar from "@mui/material/Toolbar";
+import { SetStateAction, useState } from "react";
+
 // Sample course data
 const courses: CourseType[] = CourseData;
 
+const navItems = [
+  "Paid",
+  "Free",
+  "Personal Development",
+  "Women",
+  "Men",
+  "Tech",
+  "Data Analysis",
+  "Fullstack Development",
+  "more",
+];
+
 const CourseCatalog = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [page, setPage] = useState(1);
+
+  const handleLinkClick = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  const handlePageChange = (_event: unknown, value: SetStateAction<number>) => {
+    setPage(value);
+  };
   return (
     <Box pb={8}>
       <Container maxWidth="lg">
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
             my: 3,
           }}
         >
-          <Typography
-            color="#404040"
-            fontFamily="'Libre Baskerville'"
-            fontSize={{ xs: 28, md: 36 }}
-            my={4}
-            textAlign={{ xs: "left", md: "center" }}
-          >
-            Courses to help your aspirations
-          </Typography>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link
-              href="#"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                textDecoration: "none",
-                color: "green",
-              }}
-            >
-              See all <ArrowForwardIosIcon sx={{ ml: 0.5, fontSize: 18 }} />
-            </Link>
-          </Box>
+          <Toolbar sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+            <Box>
+              <Image
+                src={ToolIcon.src}
+                alt="Course tools"
+                width={25}
+                height={20}
+              />
+            </Box>
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                href="#"
+                onClick={() => handleLinkClick(index)}
+                underline={activeIndex === index ? "always" : "none"}
+                sx={{
+                  color: activeIndex === index ? "#084E06" : "inherit",
+                  "&:hover": {
+                    scolor: "inherit",
+                  },
+                  py: activeIndex === index ? 2 : 0, // Add padding-bottom for active link
+                  mb: activeIndex === index ? 1 : 0,
+                }}
+              >
+                <Typography
+                  fontFamily={"'sf display pro'"}
+                  fontSize={{ xs: 16, md: 18 }}
+                  color="#7E7E7E"
+                >
+                  {item}
+                </Typography>
+              </Link>
+            ))}
+          </Toolbar>
         </Box>
 
         <Grid container spacing={3}>
-          {courses.slice(0, 4).map((course) => (
+          {courses.map((course) => (
             <Grid size={{ xs: 12, sm: 6, md: 3 }} key={course.id}>
               <Card
                 sx={{
@@ -114,20 +151,33 @@ const CourseCatalog = () => {
             </Grid>
           ))}
         </Grid>
-        <Box sx={{ display: { xs: "block", md: "none" }, mt: 4 }}>
-          <Link
-            href="#"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              textDecoration: "none",
-              color: "green",
-            }}
-          >
-            See all <ArrowForwardIosIcon sx={{ ml: 0.5, fontSize: 18 }} />
-          </Link>
-        </Box>
       </Container>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          position: "relative",
+          bottom: "0px",
+          left: "0px",
+          right: "0px",
+          zIndex: 1,
+          my: 5,
+        }}
+      >
+        <Stack spacing={2}>
+          <Pagination
+            count={3}
+            page={page}
+            onChange={handlePageChange}
+            color="primary"
+            shape="rounded"
+            sx={{
+              "& .MuiPaginationItem-root.Mui-selected": { bgcolor: "#084E06" },
+            }}
+          />
+        </Stack>
+      </Box>
     </Box>
   );
 };

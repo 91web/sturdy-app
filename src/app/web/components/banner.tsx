@@ -2,18 +2,13 @@ import Box from "@mui/material/Box";
 import Image from "next/image";
 import BannerImage from "../../../assets/img/enrol-hero.png";
 import Typography from "@mui/material/Typography";
-import { ReactNode } from "react";
 
 interface BannerProps {
   title: string;
   description: string;
-  btnElement?: ReactNode;
 }
 
-export const Banner: React.FC<BannerProps> = ({
-  title,
-  description,
-}) => {
+export const Banner: React.FC<BannerProps> = ({ title, description }) => {
   return (
     <Box
       sx={{
@@ -89,7 +84,6 @@ export const Banner: React.FC<BannerProps> = ({
           >
             {description}
           </Typography>
-      
         </Box>
       </Box>
     </Box>

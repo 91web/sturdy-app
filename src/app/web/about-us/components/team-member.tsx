@@ -18,20 +18,31 @@ export default function TeamHero() {
   return (
     <Box sx={{ bgcolor: "#E1E7E1" }}>
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center", my: 6 }}>
-          <Typography
-            color="#404040"
-            fontFamily={"'libre baskerville'"}
-            fontSize={{ xs: 28, md: 36 }}
-            mb={1}
+        <Box sx={{ textAlign: "center", py: 6 }}>
+          <Box
+            sx={{
+              border: "1px solid #000000",
+              borderRadius: 1,
+              width: "70%",
+              mx: "auto",
+              height: "50px",
+              display: { xs: "none", md: "block" },
+            }}
           >
-            Meet the Team
-          </Typography>
+            <Typography
+              color="#404040"
+              fontFamily={"'libre baskerville'"}
+              fontSize={{ xs: 28, md: 36 }}
+              mb={1}
+            >
+              Meet the Team
+            </Typography>
+          </Box>
           <Typography
             color="#404040"
             fontFamily={"'sf pro display'"}
             fontSize={{ xs: 16, md: 18 }}
-            mb={1}
+            my={1}
             sx={{ maxWidth: 600, mx: "auto" }}
           >
             Lorem ipsum dolor sit amet consectetur. Lectus molestie est in cras
