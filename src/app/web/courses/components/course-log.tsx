@@ -13,12 +13,14 @@ import ToolIcon from "../../../../assets/svg/tool-icon.svg";
 import Image from "next/image";
 import { CourseData, CourseType } from "../../components/static-data/data";
 import Pagination from "@mui/material/Pagination";
-
 import Toolbar from "@mui/material/Toolbar";
 import { SetStateAction, useState } from "react";
 
 // Sample course data
 const courses: CourseType[] = CourseData;
+
+// Define the base URL
+const baseUrl = "/web/courses/course-details";
 
 const navItems = [
   "Paid",
@@ -32,6 +34,8 @@ const navItems = [
   "more",
 ];
 
+const itemsPerPage = 14; // Set how many courses to display per page
+
 const CourseCatalog = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [page, setPage] = useState(1);
@@ -43,6 +47,12 @@ const CourseCatalog = () => {
   const handlePageChange = (_event: unknown, value: SetStateAction<number>) => {
     setPage(value);
   };
+
+  // Calculate the courses to display for the current page
+  const startIndex = (page - 1) * itemsPerPage;
+  const displayedCourses = courses.slice(startIndex, startIndex + itemsPerPage);
+  const totalPages = Math.ceil(courses.length / itemsPerPage);
+
   return (
     <Box pb={8}>
       <Container maxWidth="lg">
@@ -70,9 +80,9 @@ const CourseCatalog = () => {
                 sx={{
                   color: activeIndex === index ? "#084E06" : "inherit",
                   "&:hover": {
-                    scolor: "inherit",
+                    color: "inherit",
                   },
-                  py: activeIndex === index ? 2 : 0, // Add padding-bottom for active link
+                  py: activeIndex === index ? 2 : 0,
                   mb: activeIndex === index ? 1 : 0,
                 }}
               >
@@ -89,65 +99,74 @@ const CourseCatalog = () => {
         </Box>
 
         <Grid container spacing={3}>
-          {courses.map((course) => (
+          {displayedCourses.map((course) => (
             <Grid size={{ xs: 12, sm: 6, md: 3 }} key={course.id}>
-              <Card
-                sx={{
-                  height: "100%",
-                  boxShadow: "none",
-                  border: "1px solid #eee",
-                }}
+              <Link
+                href={`${baseUrl}/${course.id}`}
+                style={{ textDecoration: "none" }}
               >
-                <CardMedia
-                  component="img"
-                  height="160"
-                  image={course.image}
-                  alt={course.title}
-                  sx={{ objectFit: "cover" }}
-                />
-                <CardContent sx={{ p: 2 }}>
-                  <Typography
-                    color="#252525"
-                    fontFamily={"'sf pro display'"}
-                    fontSize={{ xs: 22, md: 24 }}
-                    mb={1}
-                  >
-                    {course.title}
-                  </Typography>
-                  <Typography
-                    color="#797979"
-                    fontFamily={"'sf pro display'"}
-                    fontSize={{ xs: 15, md: 16 }}
-                    mb={1}
-                  >
-                    {course.description}
-                  </Typography>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <Avatar
-                      src={course.instructor.avatar}
-                      alt={course.instructor.name}
-                      sx={{ width: 32, height: 32 }}
-                    />
-                    <Box>
-                      <Typography
-                        color="#797979"
-                        fontFamily={"'sf pro display'"}
-                        fontSize={{ xs: 15, md: 16 }}
-                        fontWeight="600"
-                      >
-                        {course.instructor.name}
-                      </Typography>
-                      <Typography
-                        color="#797979"
-                        fontFamily={"'sf pro display'"}
-                        fontSize={{ xs: 15, md: 16 }}
-                      >
-                        {course.instructor.title}
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </CardContent>
-              </Card>
+                <Card
+                  sx={{
+                    height: "100%",
+                    boxShadow: "none",
+                    border: "1px solid #eee",
+                    transition: "transform 0.3s",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    height="160"
+                    image={course.image}
+                    alt={course.title}
+                    sx={{ objectFit: "cover" }}
+                  />
+                  <CardContent sx={{ p: 2 }}>
+                    <Typography
+                      color="#252525"
+                      fontFamily={"'sf pro display'"}
+                      fontSize={{ xs: 22, md: 24 }}
+                      mb={1}
+                    >
+                      {course.title}
+                    </Typography>
+                    <Typography
+                      color="#797979"
+                      fontFamily={"'sf pro display'"}
+                      fontSize={{ xs: 15, md: 16 }}
+                      mb={1}
+                    >
+                      {course.description}
+                    </Typography>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <Avatar
+                        src={course.instructor.avatar}
+                        alt={course.instructor.name}
+                        sx={{ width: 32, height: 32 }}
+                      />
+                      <Box>
+                        <Typography
+                          color="#797979"
+                          fontFamily={"'sf pro display'"}
+                          fontSize={{ xs: 15, md: 16 }}
+                          fontWeight="600"
+                        >
+                          {course.instructor.name}
+                        </Typography>
+                        <Typography
+                          color="#797979"
+                          fontFamily={"'sf pro display'"}
+                          fontSize={{ xs: 15, md: 16 }}
+                        >
+                          {course.instructor.title}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </CardContent>
+                </Card>
+              </Link>
             </Grid>
           ))}
         </Grid>
@@ -167,7 +186,7 @@ const CourseCatalog = () => {
       >
         <Stack spacing={2}>
           <Pagination
-            count={3}
+            count={totalPages}
             page={page}
             onChange={handlePageChange}
             color="primary"
