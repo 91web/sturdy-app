@@ -1,14 +1,12 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
-import {
-  Button,
-  Container,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
 import CIcon from "../../../../../assets/img/circle-icon.png";
 import Image from "next/image";
 const ContentsDetails = () => {
@@ -244,20 +242,20 @@ const ContentsDetails = () => {
                 </Typography>
                 <Typography mb={2}>
                   While WordPress might seem scary from the outside, once you
-                  get started, it's fairly intuitive. Everything from hosting to
+                  get started, it&apos;s fairly intuitive. Everything from hosting to
                   installing a theme, then actually building your first pages
                   can be learned in the first few lessons of this course.
                 </Typography>
                 <Typography mb={2}>
-                  With this WordPress course, you don't need to actually pay for
-                  hosting to practice with WordPress. I'll show you how to
+                  With this WordPress course, you don&apos;t need to actually pay for
+                  hosting to practice with WordPress. I&apos;ll show you how to
                   create a free temporary site so you can follow along.
                 </Typography>
                 <Typography fontWeight={600} mb={1}>
                   Why learn WordPress from me?
                 </Typography>
                 <Typography mb={2}>
-                  I've been building WordPress websites for years. Just like
+                  I&apos;ve been building WordPress websites for years. Just like
                   you, there was a time when I was a complete newbie! I was
                   honestly scared of starting a WordPress website because it
                   seemed so daunting.
@@ -266,12 +264,12 @@ const ContentsDetails = () => {
                   Now I love WordPress!
                 </Typography>
                 <Typography>
-                  I wouldn't recommend using any other web-building tool. I
-                  still remember what it is like to be a beginner, and I've kept
+                  I wouldn&apos;t recommend using any other web-building tool. I
+                  still remember what it is like to be a beginner, and I&apos;ve kept
                   that in mind while creating this entire course. I walk you
                   through every process step-by-step to make sure you understand
                   things clearly. And if there is ever anything that is
-                  confusing, just let me know and I'll create more lessons that
+                  confusing, just let me know and I&apos;ll create more lessons that
                   explain or walk you through myself.
                 </Typography>
               </Box>

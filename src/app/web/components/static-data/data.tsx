@@ -386,6 +386,8 @@ export const TeamMemberD: TeamMemberType[] = [
   },
 ];
 
+
+
 ///App bar
 export type NavType = {
   id: string;

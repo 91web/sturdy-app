@@ -7,12 +7,12 @@ import CourseCatalog from "./components/course-log";
 import BannerSection from "./components/enrol-hero";
 const HomeApp = () => {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <Box>
       <HomeHero />
       <LearningPlatform />
       <WhyUs />
       <CourseCatalog />
-      <BannerSection/>
+      <BannerSection />
     </Box>
   );
 };

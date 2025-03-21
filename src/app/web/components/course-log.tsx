@@ -15,6 +15,9 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // Sample course data
 const courses: CourseType[] = CourseData;
 
+// Define the base URL
+const baseUrl = "/web/courses/course-details";
+
 const CourseCatalog = () => {
   return (
     <Box pb={8}>
@@ -51,69 +54,80 @@ const CourseCatalog = () => {
           </Box>
         </Box>
 
-        <Grid container spacing={3}>
-          {courses.slice(0, 4).map((course) => (
-            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={course.id}>
-              <Card
-                sx={{
-                  height: "100%",
-                  boxShadow: "none",
-                  border: "1px solid #eee",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  height="160"
-                  image={course.image}
-                  alt={course.title}
-                  sx={{ objectFit: "cover" }}
-                />
-                <CardContent sx={{ p: 2 }}>
-                  <Typography
-                    color="#252525"
-                    fontFamily={"'sf pro display'"}
-                    fontSize={{ xs: 22, md: 24 }}
-                    mb={1}
+        <Box>
+          <Grid container spacing={3}>
+            {courses.slice(0, 4).map((course) => (
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={course.id}>
+                <Link
+                  href={`${baseUrl}/${course.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    sx={{
+                      height: "100%",
+                      boxShadow: "none",
+                      border: "1px solid #eee",
+                      transition: "transform 0.3s",
+                      "&:hover": {
+                        transform: "scale(1.05)",
+                      },
+                    }}
                   >
-                    {course.title}
-                  </Typography>
-                  <Typography
-                    color="#797979"
-                    fontFamily={"'sf pro display'"}
-                    fontSize={{ xs: 15, md: 16 }}
-                    mb={1}
-                  >
-                    {course.description}
-                  </Typography>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <Avatar
-                      src={course.instructor.avatar}
-                      alt={course.instructor.name}
-                      sx={{ width: 32, height: 32 }}
+                    <CardMedia
+                      component="img"
+                      height="160"
+                      image={course.image}
+                      alt={course.title}
+                      sx={{ objectFit: "cover" }}
                     />
-                    <Box>
+                    <CardContent sx={{ p: 2 }}>
                       <Typography
-                        color="#797979"
+                        color="#252525"
                         fontFamily={"'sf pro display'"}
-                        fontSize={{ xs: 15, md: 16 }}
-                        fontWeight="600"
+                        fontSize={{ xs: 22, md: 24 }}
+                        mb={1}
                       >
-                        {course.instructor.name}
+                        {course.title}
                       </Typography>
                       <Typography
                         color="#797979"
                         fontFamily={"'sf pro display'"}
                         fontSize={{ xs: 15, md: 16 }}
+                        mb={1}
                       >
-                        {course.instructor.title}
+                        {course.description}
                       </Typography>
-                    </Box>
-                  </Stack>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <Avatar
+                          src={course.instructor.avatar}
+                          alt={course.instructor.name}
+                          sx={{ width: 32, height: 32 }}
+                        />
+                        <Box>
+                          <Typography
+                            color="#797979"
+                            fontFamily={"'sf pro display'"}
+                            fontSize={{ xs: 15, md: 16 }}
+                            fontWeight="600"
+                          >
+                            {course.instructor.name}
+                          </Typography>
+                          <Typography
+                            color="#797979"
+                            fontFamily={"'sf pro display'"}
+                            fontSize={{ xs: 15, md: 16 }}
+                          >
+                            {course.instructor.title}
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
         <Box sx={{ display: { xs: "block", md: "none" }, mt: 4 }}>
           <Link
             href="#"

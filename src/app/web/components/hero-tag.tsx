@@ -10,6 +10,7 @@ const TypoBox = () => {
         left: { xs: "0%", md: "-10%" },
         display: "flex",
         flexDirection: "column",
+ 
       }}
     >
       {/* First Box */}
