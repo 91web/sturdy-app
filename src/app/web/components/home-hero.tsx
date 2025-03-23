@@ -25,7 +25,7 @@ const HomeText = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: { xs: "120vh", sm: "140vh", md: "100vh" },
+        height: { xs: "190vh", sm: "140vh", md: "100vh" },
         overflow: "hidden",
       }}
     >
