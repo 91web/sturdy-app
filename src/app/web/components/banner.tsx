@@ -15,30 +15,19 @@ export const Banner: React.FC<BannerProps> = ({ title, description }) => {
         position: "relative",
         width: "100%",
         minHeight: { xs: "400px", md: "650px" },
-        backgroundImage: `url(${BannerImage.src})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${BannerImage.src})`,
       }}
     >
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 0,
-        }}
-      >
-        <Image
-          src={BannerImage}
-          alt="Banner"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
-      </Box>
+      <Image
+        src={BannerImage}
+        alt="Banner"
+        layout="fill"
+        objectFit="cover"
+        priority
+      />
       <Box
         sx={{
           width: "100%",
@@ -56,14 +45,12 @@ export const Banner: React.FC<BannerProps> = ({ title, description }) => {
             textAlign: "center",
             zIndex: 2,
             px: { xs: 2, md: 5 },
-            // pt: { xs: "89px", md: "95px" },
           }}
         >
           <Typography
-            // variant="h3"
+            variant="h3"
             sx={{
               color: "#fff",
-
               fontSize: { xs: "30px", md: "54px" },
               maxWidth: "90%",
               fontFamily: "'libre baskerville'",
@@ -74,11 +61,11 @@ export const Banner: React.FC<BannerProps> = ({ title, description }) => {
           </Typography>
           <Typography
             sx={{
-              // maxWidth: "80%",
+              maxWidth: "80%",
               fontSize: { xs: "16px", md: "20px" },
               mx: "auto",
               fontFamily: "'sf pro display'",
-              // mt: { xs: 0.5, md: 1 },
+              mt: { xs: 0.5, md: 1 },
               color: "#CCCCCC",
             }}
           >
