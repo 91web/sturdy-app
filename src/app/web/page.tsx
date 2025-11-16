@@ -5,6 +5,7 @@ import LearningPlatform from "./components/learning-platform";
 import WhyUs from "./components/why-hero";
 import CourseCatalog from "./components/course-log";
 import BannerSection from "./components/enrol-hero";
+
 const HomeApp = () => {
   return (
     <Box>

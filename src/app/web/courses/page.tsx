@@ -1,3 +1,4 @@
+"use client";
 import { Banner } from "./components/banner";
 import Box from "@mui/material/Box";
 import CourseCatalog from "./components/course-log";

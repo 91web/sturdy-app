@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./theme/globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -38,11 +39,13 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   manifest: "/site.webmanifest",
-  themeColor: "#000000",
   appleWebApp: {
     title: "Sturdy Wings | Education and Consulting Services",
     statusBarStyle: "default",
   },
+};
+export const viewport = {
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
