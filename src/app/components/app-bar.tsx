@@ -74,7 +74,7 @@ const RootAppBar = () => {
   return (
     <>
       <AppBar
-        position="static"
+        position="fixed"
         sx={{ backgroundColor: "#f2f2f2", boxShadow: "none" }}
       >
         <Toolbar>

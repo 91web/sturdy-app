@@ -27,6 +27,8 @@ export interface CourseType {
     avatar?: string;
     title: string;
   };
+  tags?: string[]; // Optionaltags field
+  price?: number;
 }
 
 export const CourseData: CourseType[] = [
@@ -42,6 +44,8 @@ export const CourseData: CourseType[] = [
       avatar: Avatar2.src,
       title: "Instructor",
     },
+   tags: ["free"],
+    price: 0,
   },
   {
     id: "2",
@@ -55,6 +59,8 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["paid"],
+    price: 49.99,
   },
   {
     id: "3",
@@ -68,6 +74,8 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["free"],
+    price: 0,
   },
   {
     id: "4",
@@ -81,6 +89,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["paid", "Tech", "Data Analysis"],
   },
   {
     id: "5",
@@ -94,6 +103,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["paid", "Tech", "Fullstack Development", "Men", "Women"],
   },
   {
     id: "6",
@@ -107,6 +117,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["free", "Personal Development"],
   },
   {
     id: "7",
@@ -120,6 +131,7 @@ export const CourseData: CourseType[] = [
       avatar: Avatar2.src,
       title: "Instructor",
     },
+   tags: ["paid", "Tech"],
   },
   {
     id: "8",
@@ -133,6 +145,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["free", "Personal Development"],
   },
 
   {
@@ -147,6 +160,13 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: [
+      "paid",
+      "Personal Development",
+      "Women",
+      "Men",
+      "Fullstack Development",
+    ],
   },
   {
     id: "10",
@@ -160,6 +180,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["free", "Tech"],
   },
   {
     id: "11",
@@ -173,6 +194,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["paid", "Personal Development"],
   },
   {
     id: "12",
@@ -186,6 +208,7 @@ export const CourseData: CourseType[] = [
       avatar: Avatar2.src,
       title: "Instructor",
     },
+   tags: ["free"],
   },
   {
     id: "13",
@@ -199,6 +222,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["paid", "Personal Development"],
   },
   {
     id: "14",
@@ -212,6 +236,7 @@ export const CourseData: CourseType[] = [
       avatar: Avatar2.src,
       title: "Instructor",
     },
+   tags: ["free"],
   },
   {
     id: "15",
@@ -225,6 +250,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["paid", "Tech"],
   },
   {
     id: "16",
@@ -238,6 +264,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["free"],
   },
   {
     id: "17",
@@ -251,6 +278,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["paid", "Personal Development"],
   },
   {
     id: "18",
@@ -264,6 +292,7 @@ export const CourseData: CourseType[] = [
       avatar: Avatar2.src,
       title: "Instructor",
     },
+   tags: ["free"],
   },
   {
     id: "19",
@@ -277,6 +306,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["paid", "Tech"],
   },
   {
     id: "20",
@@ -290,6 +320,7 @@ export const CourseData: CourseType[] = [
       avatar: "/placeholder.svg?height=40&width=40",
       title: "Instructor",
     },
+   tags: ["free"],
   },
 ];
 
@@ -385,8 +416,6 @@ export const TeamMemberD: TeamMemberType[] = [
     image: TeamHero6.src,
   },
 ];
-
-
 
 ///App bar
 export type NavType = {

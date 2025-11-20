@@ -14,7 +14,7 @@ import Image from "next/image";
 import { CourseData, CourseType } from "../../components/static-data/data";
 import Pagination from "@mui/material/Pagination";
 import Toolbar from "@mui/material/Toolbar";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useState, useEffect, useMemo } from "react";
 
 // Sample course data
 const courses: CourseType[] = CourseData;
@@ -23,6 +23,7 @@ const courses: CourseType[] = CourseData;
 const baseUrl = "/web/courses/course-details";
 
 const navItems = [
+  "All",
   "Paid",
   "Free",
   "Personal Development",
@@ -34,24 +35,106 @@ const navItems = [
   "more",
 ];
 
-const itemsPerPage = 10; // Set how many courses to display per page
+const itemsPerPage = 8; // Set how many courses to display per page
 
 const CourseCatalog = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [page, setPage] = useState(1);
+  const [filteredCourses, setFilteredCourses] = useState<CourseType[]>(courses);
 
   const handleLinkClick = (index: number) => {
     setActiveIndex(index);
+    setPage(1); // Reset to first page when filter changes
   };
 
   const handlePageChange = (_event: unknown, value: SetStateAction<number>) => {
     setPage(value);
   };
 
+  // Filter courses based on active nav item
+  useEffect(() => {
+    const activeFilter = navItems[activeIndex];
+
+    if (activeFilter === "All") {
+      setFilteredCourses(courses);
+      return;
+    }
+
+    const filtered = courses.filter((course) => {
+      const courseTags = course.tags || [];
+
+      switch (activeFilter) {
+        case "Paid":
+          return course.price !== undefined && course.price > 0;
+        case "Free":
+          return course.price === 0 || course.price === undefined;
+        case "Personal Development":
+          return courseTags.some(
+            (tag) =>
+              tag.toLowerCase().includes("personal") ||
+              tag.toLowerCase() === "personal development"
+          );
+        case "Women":
+          return courseTags.some(
+            (tag) =>
+              tag.toLowerCase().includes("women") ||
+              tag.toLowerCase() === "women"
+          );
+        case "Men":
+          return courseTags.some(
+            (tag) =>
+              tag.toLowerCase().includes("men") || tag.toLowerCase() === "men"
+          );
+        case "Tech":
+          return courseTags.some(
+            (tag) =>
+              tag.toLowerCase().includes("tech") || tag.toLowerCase() === "tech"
+          );
+        case "Data Analysis":
+          return courseTags.some(
+            (tag) =>
+              tag.toLowerCase().includes("data") ||
+              tag.toLowerCase().includes("analysis") ||
+              tag.toLowerCase() === "data analysis"
+          );
+        case "Fullstack Development":
+          return courseTags.some(
+            (tag) =>
+              tag.toLowerCase().includes("fullstack") ||
+              tag.toLowerCase().includes("development") ||
+              tag.toLowerCase() === "fullstack development"
+          );
+        case "more":
+          // Show courses that don't fit into other categories
+          return !courseTags.some((tag) =>
+            [
+              "paid",
+              "free",
+              "personal",
+              "women",
+              "men",
+              "tech",
+              "data",
+              "analysis",
+              "fullstack",
+              "development",
+            ].some((keyword) => tag.toLowerCase().includes(keyword))
+          );
+        default:
+          return true;
+      }
+    });
+
+    setFilteredCourses(filtered);
+  }, [activeIndex, courses]);
+
   // Calculate the courses to display for the current page
   const startIndex = (page - 1) * itemsPerPage;
-  const displayedCourses = courses.slice(startIndex, startIndex + itemsPerPage);
-  const totalPages = Math.ceil(courses.length / itemsPerPage);
+  const displayedCourses = useMemo(
+    () => filteredCourses.slice(startIndex, startIndex + itemsPerPage),
+    [filteredCourses, startIndex]
+  );
+  const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
 
   return (
     <Box pb={8}>
