@@ -34,7 +34,7 @@ const navItems = [
   "more",
 ];
 
-const itemsPerPage = 14; // Set how many courses to display per page
+const itemsPerPage = 10; // Set how many courses to display per page
 
 const CourseCatalog = () => {
   const [activeIndex, setActiveIndex] = useState(0);

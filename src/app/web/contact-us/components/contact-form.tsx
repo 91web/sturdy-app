@@ -75,8 +75,8 @@ export default function ContactForm() {
                   fontSize={{ xs: 15, md: 16 }}
                   m={2}
                 >
-                  NG: +234 7018078486 <br />
-                  US: +1 267-652-8662
+                  NG: +234 8149116211<br />
+                  US: +234 81-49-116-211 
                 </Typography>
               </Box>
             </Grid2>

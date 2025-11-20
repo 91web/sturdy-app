@@ -1,5 +1,6 @@
 "use client";
 import Box from "@mui/material/Box";
+import RootAppBar from "../components/app-bar";
 
 
 const AppWebBlogLayout = ({
@@ -10,6 +11,7 @@ const AppWebBlogLayout = ({
   return (
     <Box>
       <Box id="homesturdy" component={"main"}>
+        <RootAppBar />
         {children}
       </Box>
   
